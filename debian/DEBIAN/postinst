@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "Start install hobot kernel headers"
+
+cd /usr/src/linux-headers-6.1.83;
+echo "Compiling headers - please wait ...";
+find /usr/src/linux-headers-6.1.83 -type f -exec touch {} +
+make CC=gcc scripts
+
+exit 0
