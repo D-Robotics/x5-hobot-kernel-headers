@@ -3,7 +3,7 @@
 cd /usr/src/linux-headers-6.1.83;
 echo "Compiling headers - please wait ...";
 find /usr/src/linux-headers-6.1.83 -type f -exec touch {} +
-make CC=gcc scripts
+make CC=gcc CONFIG_RDK_MOD=y scripts
 
 exit 0
 
