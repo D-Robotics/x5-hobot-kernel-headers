@@ -1,9 +1,12 @@
 #!/bin/bash
 
-cd /usr/src/linux-headers-6.1.83;
-echo "Compiling headers - please wait ...";
-find /usr/src/linux-headers-6.1.83 -type f -exec touch {} +
-make CC=gcc CONFIG_RDK_MOD=y scripts
+for kver in /lib/modules/linux-headers-*; do
+    [ -d "$kver" ] || continue
+    cd /usr/src/"$kver";
+    echo "Compiling headers - please wait ...";
+    find /usr/src/"$kver" -type f -exec touch {} +
+    make CC=gcc CONFIG_RDK_MOD=y scripts
+done
 
 exit 0
 
